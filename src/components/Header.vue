@@ -19,17 +19,26 @@ const rederIcon = (icon) => {
 const options = [
   {
     label: '用户资料',
-    key: "user"
-  },
-  {
-    label: '修改密码',
-  key: "edit"
+    key: "user",
   },
   {
     label: '退出登录',
     key: "logout"
   }
 ]
+
+const handleSelect = (key) => {
+  switch (key) {
+    case "user":
+      console.log("user")
+      break;
+    case "logout":
+      console.log("logout")
+      break;
+    default:
+      break;
+  }
+}
 </script>
 
 <template>
@@ -39,8 +48,8 @@ const options = [
     <div class="right-wrapper">
     </div>
     <div class="avatar-wrapper">
-      <n-dropdown :options="options">
-        <n-button>用户资料</n-button>
+      <n-dropdown :options="options" @select="handleSelect">
+        <n-button>{{'Hugo'}} 已登录</n-button>
       </n-dropdown>
     </div>
   </div>
