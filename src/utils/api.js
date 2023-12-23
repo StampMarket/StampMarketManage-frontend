@@ -1,32 +1,23 @@
 // define the api url
-const baseUrl = "http://localhost:8080";
+const userURL = "http://localhost:9001/user";
+const stampURL = "http://localhost:9002/stamp";
+const orderURL = "http://localhost:9003/order";
 
 // define the api
 const api = {
     // user
-    login: baseUrl + "/login",
-    logout: baseUrl + "/logout",
-    register: baseUrl + "/register",
-    getUserInfo: baseUrl + "/getUserInfo",
-    updateUserInfo: baseUrl + "/updateUserInfo",
+    login: userURL + "/login",
+    register: userURL + "/register",
+    recharge: userURL + "/recharge",
+    deduct: userURL + "/deduct",
     // stamp
-    getStampList: baseUrl + "/getStampList",
-    getStampById: baseUrl + "/getStampById",
-    addStamp: baseUrl + "/addStamp",
-    updateStamp: baseUrl + "/updateStamp",
-    deleteStamp: baseUrl + "/deleteStamp",
+    getStampList: stampURL + "/list",
+    addStamp: stampURL + "/add",
+    deleteStamp: stampURL + "/delete",
+    updateStamp: stampURL + "/modify",
+    checkPrice: stampURL + "/price",
     // order
-    getOrderList: baseUrl + "/getOrderList",
-    getOrderById: baseUrl + "/getOrderById",
-    addOrder: baseUrl + "/addOrder",
-    updateOrder: baseUrl + "/updateOrder",
-    deleteOrder: baseUrl + "/deleteOrder",
-    // cart
-    getCartList: baseUrl + "/getCartList",
-    getCartById: baseUrl + "/getCartById",
-    addCart: baseUrl + "/addCart",
-    updateCart: baseUrl + "/updateCart",
-    deleteCart: baseUrl + "/deleteCart",
+    getOrderList: orderURL,
 };
 
 export default api;

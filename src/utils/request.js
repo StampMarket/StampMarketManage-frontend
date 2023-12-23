@@ -1,55 +1,36 @@
-import axios from "axios";
+// axios
+import axios from 'axios'
+
+export const baseURL = 'http://localhost:8080'
+export const CONTENT_TYPE = 'Content-Type'
+export const FORM_URLENCODED = 'application/x-www-form-urlencoded; charset=UTF-8'
+export const APPLICATION_JSON = 'application/json; charset=UTF-8'
+export const TEXT_PLAIN = 'text/plain; charset=UTF-8'
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: "http://localhost:8080", // api的base_url
-    timeout: 5000 // 请求超时时间
-});
-
+    baseURL: baseURL, // url = base url + request url
+    timeout: 60000 // request timeout
+})
 // request拦截器
 service.interceptors.request.use(
     config => {
-        // Do something before request is sent
-        // if (store.getters.token) {
-        //     config.headers["X-Token"] = getToken(); // 让每个请求携带自定义token 请根据实际情况自行修改
-        // }
-        return config;
+        config.headers['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+        return config
     },
     error => {
-        // Do something with request error
-        console.log(error); // for debug
-        Promise.reject(error);
+        console.log(error) // for debug
+        return Promise.reject(error)
     }
-);
+)
 
-// respone拦截器
+// response 拦截器
 service.interceptors.response.use(
     response => {
-        /**
-         * code为非20000是抛错 可结合自己业务进行修改
-         */
-        // const res = response.data;
-        // if (res.code !== 20000) {
-        //     Message({
-        //         message: res.message,
-        //         type: "error",
-        //         duration: 5 * 1000
-        //     });
-        //     return Promise.reject("error");
-        // } else {
-        //     return response.data;
-        // }
-        return response.data;
+        return response.data
     },
     error => {
-        console.log("err" + error); // for debug
-        // Message({
-        //     message: error.message,
-        //     type: "error",
-        //     duration: 5 * 1000
-        // });
-        return Promise.reject(error);
+        return Promise.reject(error)
     }
-);
-
-export default service;
+)
+export default service

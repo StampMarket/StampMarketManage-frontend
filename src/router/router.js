@@ -16,13 +16,11 @@ const router = createRouter({
                     }
                 },
                 {
-                    path: '/order',
-                    name: 'Order',
-                    component: () => import('../views/Order.vue'),
+                    path: '/stamp',
+                    name: 'Stamp',
+                    component: () => import('../views/Stamp.vue'),
                     meta: {
-                        title: 'Order',
-                        requiresAuth: true
-
+                        title: 'Stamp'
                     }
                 },
                 {

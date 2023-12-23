@@ -47,11 +47,11 @@ const handleSelect = (key) => {
     <div style="flex: 1"></div>
     <div class="right-wrapper">
     </div>
-    <div class="avatar-wrapper">
-      <n-dropdown :options="options" @select="handleSelect">
-        <n-button>{{'Hugo'}} 已登录</n-button>
-      </n-dropdown>
-    </div>
+<!--    <div class="avatar-wrapper">-->
+<!--      <n-dropdown :options="options" @select="handleSelect">-->
+<!--        <n-button>{{'Hugo'}} 已登录</n-button>-->
+<!--      </n-dropdown>-->
+<!--    </div>-->
   </div>
 </template>
 

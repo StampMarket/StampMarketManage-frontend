@@ -19,21 +19,13 @@ const router = useRouter();
       </template>
       工作台
     </n-button>
-    <n-button @click="router.push('/order')" strong>
+    <n-button @click="router.push('/stamp')" strong>
       <template #icon>
         <n-icon>
           <order-icon />
         </n-icon>
       </template>
-      订单管理
-    </n-button>
-    <n-button @click="router.push('/user')" strong>
-      <template #icon>
-        <n-icon>
-          <user-icon />
-        </n-icon>
-      </template>
-      用户管理
+      邮票管理
     </n-button>
 
   </n-space>
